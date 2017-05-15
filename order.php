@@ -7,9 +7,9 @@ if(! $conn )
 {
     die('Could not connect: ' . mysql_error());
 }
-$sql = 'SELECT product_name, product_sku, 
-               product_description
-        FROM product_tbl';
+$sql = 'SELECT name, sku, 
+               description
+        FROM product';
 
 function display_product_list($sql, $conn) {
     mysql_select_db('order_db');
@@ -22,7 +22,7 @@ function display_product_list($sql, $conn) {
     <select>
     <?php
     while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {?>
-        <option value="<?php echo $row['product_sku'] ?>"><?php echo $row['product_name'] ?></option>
+        <option value="<?php echo $row['sku'] ?>"><?php echo $row['name'] ?></option>
     <?php } ?>
     </select>
     <?php

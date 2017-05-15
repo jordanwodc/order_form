@@ -13,20 +13,20 @@
                 die('Could not connect: ' . mysql_error());
             }
             if(! get_magic_quotes_gpc() ) {
-                $product_name = addslashes ($_POST['product_name']);
-                $product_sku = addslashes ($_POST['product_sku']);
-                $product_description = addslashes ($_POST['product_description']);
-                $product_cost = addslashes ($_POST['product_cost']);
-                $product_wholesale_price = addslashes ($_POST['product_wholesale_price']);
-                $product_msrp = addslashes ($_POST['product_msrp']);
+                $product_name = addslashes ($_POST['name']);
+                $product_sku = addslashes ($_POST['sku']);
+                $product_description = addslashes ($_POST['description']);
+                $product_cost = addslashes ($_POST['cost']);
+                $product_wholesale_price = addslashes ($_POST['wholesalePrice']);
+                $product_msrp = addslashes ($_POST['msrp']);
             }
             else {
-                $product_name = $_POST['product_name'];
-                $product_sku = $_POST['product_sku'];
-                $product_description = $_POST['product_description'];
+                $product_name = $_POST['name'];
+                $product_sku = $_POST['sku'];
+                $product_description = $_POST['description'];
             }
-            $sql = "INSERT INTO product_tbl ".
-                   "(product_name, product_sku, product_description) ".
+            $sql = "INSERT INTO product ".
+                   "(name, sku, description) ".
                    "VALUES ".
                    "('$product_name','$product_sku','$product_description')";
             mysql_select_db('order_db');
@@ -44,41 +44,40 @@
                 <tr>
                     <td width="250">Name</td>
                     <td>
-                        <input name="product_name" type="text" id="product_name">
+                        <input name="name" type="text" id="product">
                     </td>
                 </tr>
                 <tr>
                     <td width="250">SKU</td>
                     <td>
-                        <input name="product_sku" type="text" id="product_sku">
+                        <input name="sku" type="text" id="sku">
                     </td>
                 </tr>
                 <tr>
                     <td width="250">Description</td>
                     <td>
-                        <input name="product_description" type="text" id="product_description">
+                        <input name="description" type="text" id="description">
                     </td>
                 </tr>
                 <tr>
                     <td width="250"> </td>
-                    <td> </td>
                 </tr>
                 <tr>
                     <td width="250">Cost</td>
                     <td>
-                        <input name="product_description" type="text" id="product_description">
+                        <input name="cost" type="text" id="cost">
                     </td>
                 </tr>
                 <tr>
                     <td width="250">Wholesale Price</td>
                     <td>
-                        <input name="product_description" type="text" id="product_description">
+                        <input name="wholesalePrice" type="text" id="wholesalePrice">
                     </td>
                 </tr>
                 <tr>
                     <td width="250">MSRP</td>
                     <td>
-                        <input name="product_description" type="text" id="product_description">
+                        <input name="msrp" type="text" id="msrp">
                     </td>
                 </tr>
                 <tr>

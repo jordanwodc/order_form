@@ -25,8 +25,8 @@
                 $product_sku = $_POST['product_sku'];
                 $product_description = $_POST['product_description'];
             }
-            $sql = "INSERT INTO product_tbl ".
-                   "(product_name, product_sku, product_description) ".
+            $sql = "INSERT INTO customer_tbl ".
+                   "(business_name, contact_name, product_description) ".
                    "VALUES ".
                    "('$product_name','$product_sku','$product_description')";
             mysql_select_db('order_db');
@@ -61,7 +61,6 @@
                 </tr>
                 <tr>
                     <td width="250"> </td>
-                    <td> </td>
                 </tr>
                 <tr>
                     <td width="250">Cost</td>
